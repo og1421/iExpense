@@ -41,9 +41,13 @@ struct ContentView: View {
                             Text(item.type)
                         }
                          Spacer()
-                        Text(item.amount, format: .currency(code: "USD"))
+                        Text(item.amount, format: .currency(code: "BRL"))
                             .foregroundColor( item.amount > 100 ? Color.yellow : Color.white)
                     }
+                    .accessibilityLabel(item.type)
+                    .accessibilityValue("\(item.name) \(item.amount)")
+                    .accessibilityAddTraits(.isButton)
+                    
                 }
                 .onDelete(perform: removeItems)
             }
